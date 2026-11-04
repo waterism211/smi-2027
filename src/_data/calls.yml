@@ -1,0 +1,43 @@
+# status: not_open | open | closed. An open call must have a form_url.
+# deadline must match an id in dates.yml.
+- id: invited-sessions
+  title: Invited Session Proposals
+  summary: Propose a session on a current topic in statistical methods for imaging.
+  description: >-
+    We welcome proposals for invited sessions on statistical methodology, theory,
+    computation and applications in imaging. Submission requirements will be posted when
+    the call opens.
+  status: not_open
+  form_url: null
+  deadline: session-proposals
+
+- id: short-courses
+  title: Short Courses
+  summary: Teach a hands-on course on imaging methods, software or data analysis.
+  description: >-
+    We welcome proposals for short courses and tutorials on statistical modeling,
+    biostatistical inference and imaging data analysis, including hands-on demonstrations
+    of new methods and software.
+  status: not_open
+  form_url: null
+  deadline: short-courses
+
+- id: student-papers
+  title: Best Student Paper Award
+  summary: Students can submit their work for the student paper competition.
+  description: >-
+    Student researchers are invited to enter the student paper competition. Eligibility
+    rules, award details and submission requirements will be posted when the call opens.
+  status: not_open
+  form_url: null
+  deadline: student-papers
+
+- id: posters
+  title: Poster Abstracts
+  summary: Present your research during the conference poster session.
+  description: >-
+    Researchers at all career stages are invited to submit abstracts for the poster
+    session. Topics in any area of statistics in imaging are welcome.
+  status: not_open
+  form_url: null
+  deadline: posters

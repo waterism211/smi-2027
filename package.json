@@ -1,0 +1,22 @@
+{
+  "name": "smi-2027-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Website for the Statistical Methods in Imaging (SMI) 2027 conference",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-data.mjs",
+    "build": "npm run validate && eleventy",
+    "dev": "npm run validate && eleventy --serve --port=8080",
+    "check:links": "node scripts/check-links.mjs",
+    "check:external": "node scripts/check-links.mjs --external",
+    "smoke": "npm run build && npm run check:links"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.8",
+    "js-yaml": "5.5.0"
+  }
+}

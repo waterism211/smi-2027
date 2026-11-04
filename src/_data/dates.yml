@@ -1,0 +1,6 @@
+# Each date is "TBA" or a quoted "YYYY-MM-DD". Calls refer to these rows by id.
+- { id: session-proposals, label: Invited session proposals due, date: TBA }
+- { id: short-courses, label: Short-course proposals due, date: TBA }
+- { id: student-papers, label: Best student paper submissions due, date: TBA }
+- { id: posters, label: Poster abstracts due, date: TBA }
+- { id: registration, label: Registration opens, date: TBA }

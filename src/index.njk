@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+pageDescription: Statistical Methods in Imaging (SMI) 2027, planned for the University of Maryland, College Park.
+---
+<section class="hero">
+  <div class="wrap hero__inner">
+    <div class="hero__text">
+      <p class="hero__eyebrow">{{ site.organizer }}</p>
+      <h1>Statistical Methods in Imaging <span>2027</span></h1>
+      <dl class="hero__facts">
+        <div><dt>When</dt><dd>{{ site.conference_dates | dateRange }}</dd></div>
+        <div><dt>Where</dt><dd>{{ site.host }}</dd></div>
+      </dl>
+      <p class="hero__actions">
+        <a class="button" href="/calls/">See the calls</a>
+        <a class="button button--quiet" href="#key-dates">Key dates</a>
+      </p>
+    </div>
+    <svg class="hero__map" viewBox="0 0 {{ heroMap.width }} {{ heroMap.height }}" aria-hidden="true" focusable="false">
+      {% for layer in heroMap.layers %}<path fill="{{ layer.fill }}" d="{{ layer.path }}"/>{% endfor %}
+    </svg>
+  </div>
+</section>
+
+{% if site.announcements.length %}
+<section class="band band--tint" aria-labelledby="announcements-title">
+  <div class="wrap">
+    <h2 id="announcements-title">Announcements</h2>
+    <ul class="announcements">
+      {% for item in site.announcements %}
+      <li>
+        <time datetime="{{ item.date }}">{{ item.date | displayDate }}</time>
+        {% if item.url %}<a href="{{ item.url }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="band">
+  <div class="wrap split">
+    <div>
+      <h2>About the conference</h2>
+      {% for paragraph in site.about %}<p>{{ paragraph }}</p>{% endfor %}
+    </div>
+    <div id="key-dates">
+      <h2>Key dates</h2>
+      <table class="dates">
+        <thead><tr><th scope="col">Milestone</th><th scope="col">Date</th></tr></thead>
+        <tbody>
+          {% for milestone in dates %}
+          <tr><td>{{ milestone.label }}</td><td>{{ milestone.date | displayDate }}</td></tr>
+          {% endfor %}
+          <tr class="dates__conference"><td>Conference</td><td>{% if site.conference_dates.start == "TBA" %}TBA{% else %}{{ site.conference_dates | dateRange }}{% endif %}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="band band--tint">
+  <div class="wrap">
+    <h2>Ways to take part</h2>
+    <ul class="card-grid">
+      {% for call in calls %}
+      <li class="card">
+        <h3><a href="/calls/#{{ call.id }}">{{ call.title }}</a></h3>
+        <p>{{ call.summary }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

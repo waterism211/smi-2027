@@ -1,0 +1,13 @@
+# Source: https://www.statsinimaging.org/events_smi/ (newest first; url is optional)
+# 2023 and 2019 have no url because their listed pages returned 404 and 410 on 2026-11-04.
+- { year: 2026, host: University of Michigan, location: "Ann Arbor, MI", url: "https://asa-sii.github.io/website/ASA-SII-2026/" }
+- { year: 2025, host: Rice University, location: "Houston, TX", url: "https://statistics.rice.edu/events/2025-statistical-methods-imaging-conference" }
+- { year: 2024, host: Indiana University School of Medicine, location: "Indianapolis, IN", url: "https://medicine.iu.edu/biostatistics/news-events/statistical-methods-in-imaging-conference" }
+- { year: 2023, host: University of Minnesota, location: "Minneapolis, MN" }
+- { year: 2022, host: Vanderbilt University, location: "Nashville, TN", url: "https://www.vumc.org/biostatistics/smi/" }
+- { year: 2021, host: Emory University, location: "Atlanta, GA", url: "https://scholarblogs.emory.edu/smi2021/" }
+- { year: 2019, host: "University of California, Irvine", location: "Irvine, CA" }
+- { year: 2018, host: University of Pennsylvania, location: "Philadelphia, PA", url: "https://smi2018.netlify.app/" }
+- { year: 2017, host: University of Pittsburgh, location: "Pittsburgh, PA", url: "https://www.eventbrite.com/e/statistical-methods-in-imaging-conference-registration-29081426329/" }
+- { year: 2016, host: University of Colorado, location: "Boulder, CO" }
+- { year: 2015, host: University of Michigan, location: "Ann Arbor, MI" }

@@ -1,0 +1,42 @@
+# Keep draft: true until the ASA Statistics in Imaging Section confirms the host.
+# Draft mode shows a notice on every page and asks search engines not to index.
+draft: true
+
+name: Statistical Methods in Imaging (SMI) 2027
+short_name: SMI 2027
+organizer: ASA Statistics in Imaging Section
+organizer_url: https://www.statsinimaging.org/
+host: University of Maryland, College Park
+location: College Park, Maryland
+
+# Use "TBA" for both, or quoted dates such as "2027-06-03".
+conference_dates:
+  start: TBA
+  end: TBA
+
+# Use null until a conference email address exists.
+contact_email: null
+
+description: >-
+  The annual conference of the ASA Statistics in Imaging Section, bringing together
+  statisticians, data scientists and imaging researchers.
+
+about:
+  - >-
+    The Statistical Methods in Imaging (SMI) conference is the annual meeting of the
+    American Statistical Association's Statistics in Imaging Section. It brings together
+    statisticians, biostatisticians, data scientists and imaging researchers to share new
+    methods and applications across the imaging sciences.
+  - >-
+    SMI 2027 is planned for the University of Maryland in College Park. Dates, venue and
+    program details will be posted here as they are confirmed.
+
+# Each item needs: date ("YYYY-MM-DD"), text, and optionally url.
+announcements: []
+
+nav:
+  - { label: Home, url: / }
+  - { label: Calls, url: /calls/ }
+  - { label: Venue & Travel, url: /venue/ }
+  - { label: Committee, url: /committee/ }
+  - { label: Past Meetings, url: /past-meetings/ }

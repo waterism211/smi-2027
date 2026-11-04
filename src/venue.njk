@@ -1,0 +1,50 @@
+---
+layout: layouts/page.njk
+permalink: /venue/
+pageTitle: Venue & Travel
+pageIntro: The conference is planned for the University of Maryland campus in College Park, Maryland.
+---
+<section class="content-section">
+  <h2>Venue</h2>
+  {% if travel.venue.name %}
+  <p><strong>{{ travel.venue.name }}</strong><br>{{ travel.venue.address }}</p>
+  {% if travel.venue.map_url %}<p><a href="{{ travel.venue.map_url }}">View map</a></p>{% endif %}
+  {% else %}
+  <p>The conference venue will be announced here.</p>
+  {% endif %}
+</section>
+
+<section class="content-section">
+  <h2>Getting to campus</h2>
+  <div class="card-grid card-grid--two">
+    {% for item in travel.transit %}
+    <div class="card"><h3>{{ item.title }}</h3><p>{{ item.text }}</p></div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="content-section">
+  <h2>Airports</h2>
+  <table class="dates">
+    <thead><tr><th scope="col">Airport</th><th scope="col">By public transit</th></tr></thead>
+    <tbody>
+      {% for airport in travel.airports %}
+      <tr><td><strong>{{ airport.code }}</strong> {{ airport.name }}</td><td>{{ airport.route }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="note">Service can change. Check the <a href="{{ travel.directions_url }}">University of Maryland directions page</a> and current transit schedules before you travel.</p>
+</section>
+
+<section class="content-section">
+  <h2>Hotels</h2>
+  {% if travel.hotels.length %}
+  <ul>
+    {% for hotel in travel.hotels %}
+    <li><a href="{{ hotel.url }}">{{ hotel.name }}</a>{% if hotel.note %}: {{ hotel.note }}{% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>Hotel recommendations will be posted here.</p>
+  {% endif %}
+</section>

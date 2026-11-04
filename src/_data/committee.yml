@@ -1,0 +1,5 @@
+# Each member needs: name, affiliation. Optional: role, url.
+- name: Organizing Committee
+  members: []
+- name: Scientific Advisory Panel
+  members: []
