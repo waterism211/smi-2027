@@ -7,3 +7,4 @@
 - 完成 M1 本地版：5 个页面、YAML 内容文件、数据校验、链接检查、部署 workflow、README。smoke 和外部链接检查通过。部署 workflow 尚未实际运行。
 - Past Meetings：2023 和 2019 的原链接分别返回 404 和 410，已去掉链接，只保留文字。
 - 计划更新：仓库先放个人账号 `waterism211/smi-2027`（公开仓库），用 GitHub Actions 部署草稿版。
+- 已创建公开仓库并部署草稿版到 https://waterism211.github.io/smi-2027/ ，部署 workflow 运行成功。
