@@ -1,11 +1,18 @@
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import { load as loadYaml } from "js-yaml";
 
-const MONTH_DAY = { month: "long", day: "numeric", timeZone: "UTC" };
-const FULL_DATE = { ...MONTH_DAY, year: "numeric" };
-
 const toDate = (iso) => new Date(`${iso}T00:00:00Z`);
-const format = (iso, options) => toDate(iso).toLocaleDateString("en-US", options);
+const format = (iso, options) =>
+  toDate(iso).toLocaleDateString("en-US", { timeZone: "UTC", ...options });
+const MONTH_DAY_YEAR = { month: "long", day: "numeric", year: "numeric" };
+
+function eachDay({ start, end }) {
+  const days = [];
+  for (let date = toDate(start); date <= toDate(end); date.setUTCDate(date.getUTCDate() + 1)) {
+    days.push(date.toISOString().slice(0, 10));
+  }
+  return days;
+}
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
@@ -16,21 +23,26 @@ export default function (eleventyConfig) {
     throwOnUndefined: true,
   });
 
-  eleventyConfig.addFilter("displayDate", (value) =>
-    value === "TBA" ? "TBA" : format(value, FULL_DATE),
-  );
-
+  // Same style as the SMI 2026 site: "June 2-4, 2027".
   eleventyConfig.addFilter("dateRange", ({ start, end }) => {
-    if (start === "TBA") return "Dates to be announced";
-    if (start === end) return format(start, FULL_DATE);
-    const year = start.slice(0, 4);
-    if (year !== end.slice(0, 4)) {
-      return `${format(start, FULL_DATE)} – ${format(end, FULL_DATE)}`;
+    if (start === end) return format(start, MONTH_DAY_YEAR);
+    if (start.slice(0, 7) !== end.slice(0, 7)) {
+      return `${format(start, MONTH_DAY_YEAR)} - ${format(end, MONTH_DAY_YEAR)}`;
     }
-    const sameMonth = start.slice(0, 7) === end.slice(0, 7);
-    const endText = sameMonth ? toDate(end).getUTCDate() : format(end, MONTH_DAY);
-    return `${format(start, MONTH_DAY)}–${endText}, ${year}`;
+    return `${format(start, { month: "long", day: "numeric" })}-${toDate(end).getUTCDate()}, ${start.slice(0, 4)}`;
   });
+
+  eleventyConfig.addFilter("weekdays", (dates) => {
+    const names = eachDay(dates).map((day) => format(day, { weekday: "long" }));
+    return names.join(", ");
+  });
+
+  eleventyConfig.addFilter("conferenceDays", (dates) =>
+    eachDay(dates).map((day, index) => ({
+      id: `day${index + 1}`,
+      label: `Day ${index + 1} (${format(day, MONTH_DAY_YEAR)})`,
+    })),
+  );
 
   eleventyConfig.addFilter("milestoneDate", (milestones, id) => {
     const match = milestones.find((milestone) => milestone.id === id);
@@ -41,8 +53,7 @@ export default function (eleventyConfig) {
 
 export const config = {
   dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
-  templateFormats: ["njk", "md"],
+  templateFormats: ["njk"],
   htmlTemplateEngine: "njk",
-  markdownTemplateEngine: "njk",
   pathPrefix: process.env.PATH_PREFIX || "/",
 };

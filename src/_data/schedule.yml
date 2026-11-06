@@ -1,0 +1,9 @@
+# Each slot needs a time, plus day1, day2 and/or day3 with a list of items.
+# The All Days table and the Day 1-3 tabs are both generated from this list.
+#
+# Example:
+#   - time: "7:30–8:00 AM"
+#     day1: ["Welcome, registration & coffee"]
+#     day2: ["Coffee"]
+#     day3: ["Coffee"]
+slots: []

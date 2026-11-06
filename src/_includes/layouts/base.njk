@@ -1,53 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if pageTitle %}{{ pageTitle }} | {% endif %}{{ site.short_name }}</title>
-  <meta name="description" content="{{ pageDescription or site.description }}">
-  {% if site.draft %}<meta name="robots" content="noindex">{% endif %}
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/css/site.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }} Conference</title>
+    <meta name="description" content="{{ site.title }}, {{ site.conference_dates | dateRange }}, {{ site.location }}.">
+    {% if site.draft %}<meta name="robots" content="noindex">{% endif %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  {% if site.draft %}
-  <p class="draft-notice">Draft preview. The host, dates and other details have not been officially announced.</p>
-  {% endif %}
-  <header class="site-header">
-    <div class="wrap site-header__inner">
-      <a class="wordmark" href="/">SMI<span>2027</span></a>
-      <nav aria-label="Main">
-        <ul class="site-nav">
-          {% for item in site.nav %}
-          <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main id="main">
     {{ content | safe }}
-  </main>
-  <footer class="site-footer">
-    <div class="wrap site-footer__inner">
-      <div>
-        <p class="site-footer__title">{{ site.name }}</p>
-        <p>{{ site.host }}</p>
-      </div>
-      <div>
-        <p class="site-footer__title">Contact</p>
-        {% if site.contact_email %}
-        <p><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
-        {% else %}
-        <p>Contact details will be posted here.</p>
-        {% endif %}
-      </div>
-      <div>
-        <p class="site-footer__title">Organized by</p>
-        <p><a href="{{ site.organizer_url }}">{{ site.organizer }}</a></p>
-      </div>
-    </div>
-  </footer>
+    <script src="/assets/js/site.js"></script>
 </body>
 </html>

@@ -11,7 +11,6 @@ const isIsoDate = (value) =>
   /^\d{4}-\d{2}-\d{2}$/.test(value) &&
   !Number.isNaN(new Date(`${value}T00:00:00Z`).getTime()) &&
   new Date(`${value}T00:00:00Z`).toISOString().startsWith(value);
-const isDateOrTba = (value) => value === "TBA" || isIsoDate(value);
 const isHttpsUrl = (value) => typeof value === "string" && value.startsWith("https://");
 const isText = (value) => typeof value === "string" && value.trim() !== "";
 
@@ -21,95 +20,127 @@ function requireText(where, record, fields) {
   }
 }
 
-function requireOptionalUrl(where, record, field) {
-  if (record[field] != null && !isHttpsUrl(record[field])) {
-    fail(where, `"${field}" must start with https://`);
+function requireLink(where, url) {
+  if (!isHttpsUrl(url) && !(typeof url === "string" && /^#[\w-]+$/.test(url))) {
+    fail(where, `"${url}" must be an https:// link or a #section link`);
   }
 }
 
-function requireUniqueIds(where, records) {
-  const seen = new Set();
-  for (const { id } of records) {
-    if (seen.has(id)) fail(where, `duplicate id "${id}"`);
-    seen.add(id);
+function requireOptionalHttps(where, record, field) {
+  if (record[field] != null && !isHttpsUrl(record[field])) {
+    fail(where, `"${field}" must start with https://`);
   }
 }
 
 // site.yml
 const site = read("site");
 if (typeof site.draft !== "boolean") fail("site.yml", '"draft" must be true or false');
-requireText("site.yml", site, ["name", "short_name", "organizer", "host", "location", "description"]);
-requireOptionalUrl("site.yml", site, "organizer_url");
+requireText("site.yml", site, ["title", "short_name", "subtitle", "location", "organizer_note"]);
 const { start, end } = site.conference_dates ?? {};
-if (!isDateOrTba(start) || !isDateOrTba(end)) {
-  fail("site.yml", 'conference_dates must be "TBA" or quoted YYYY-MM-DD dates');
-} else if ((start === "TBA") !== (end === "TBA")) {
-  fail("site.yml", "conference_dates start and end must both be TBA or both be dates");
-} else if (start !== "TBA" && end < start) {
+if (!isIsoDate(start) || !isIsoDate(end)) {
+  fail("site.yml", "conference_dates must be quoted YYYY-MM-DD dates");
+} else if (end < start) {
   fail("site.yml", "conference_dates end is before start");
 }
-if (site.contact_email != null && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(site.contact_email)) {
-  fail("site.yml", `invalid contact_email "${site.contact_email}"`);
+requireText("site.yml contact", site.contact, ["name", "email", "location"]);
+if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(site.contact.email)) {
+  fail("site.yml contact", `invalid email "${site.contact.email}"`);
 }
-site.announcements.forEach((item, index) => {
-  const where = `site.yml announcements[${index}]`;
-  if (!isIsoDate(item.date)) fail(where, '"date" must be a quoted YYYY-MM-DD date');
-  requireText(where, item, ["text"]);
-  requireOptionalUrl(where, item, "url");
+requireText("site.yml venue", site.venue, ["name", "address"]);
+if (!isHttpsUrl(site.venue.url)) fail("site.yml venue", '"url" must start with https://');
+if (!isHttpsUrl(site.venue.map_url)) fail("site.yml venue", '"map_url" must start with https://');
+site.nav.forEach((item, index) => {
+  requireText(`site.yml nav[${index}]`, item, ["label"]);
+  requireLink(`site.yml nav[${index}]`, item.url);
+});
+site.buttons.forEach((button, index) => {
+  const where = `site.yml buttons[${index}]`;
+  requireText(where, button, ["label"]);
+  requireLink(where, button.url);
+  if (!["primary", "secondary"].includes(button.style)) fail(where, `invalid style "${button.style}"`);
+});
+site.resources.forEach((item, index) => {
+  const where = `site.yml resources[${index}]`;
+  requireText(where, item, ["icon", "label"]);
+  if (!isHttpsUrl(item.url)) fail(where, '"url" must start with https://');
+});
+site.credits.forEach((item, index) => {
+  const where = `site.yml credits[${index}]`;
+  requireText(where, item, ["text", "note"]);
+  if (!isHttpsUrl(item.url)) fail(where, '"url" must start with https://');
 });
 
 // dates.yml
 const dates = read("dates");
-requireUniqueIds("dates.yml", dates);
+const milestoneIds = new Set();
 dates.forEach((milestone, index) => {
   const where = `dates.yml[${index}]`;
-  requireText(where, milestone, ["id", "label"]);
-  if (!isDateOrTba(milestone.date)) fail(where, '"date" must be "TBA" or a quoted YYYY-MM-DD date');
+  requireText(where, milestone, ["id", "label", "date"]);
+  requireOptionalHttps(where, milestone, "url");
+  if (milestoneIds.has(milestone.id)) fail(where, `duplicate id "${milestone.id}"`);
+  milestoneIds.add(milestone.id);
 });
-const milestoneIds = new Set(dates.map(({ id }) => id));
+
+// schedule.yml
+const DAY_KEY = /^day[1-9]$/;
+const dayCount = errors.length ? 0 :
+  Math.round((new Date(`${end}T00:00:00Z`) - new Date(`${start}T00:00:00Z`)) / 86400000) + 1;
+read("schedule").slots.forEach((slot, index) => {
+  const where = `schedule.yml slots[${index}]`;
+  requireText(where, slot, ["time"]);
+  const days = Object.keys(slot).filter((key) => key !== "time");
+  if (!days.length) fail(where, "needs at least one of day1, day2, day3");
+  for (const key of days) {
+    if (!DAY_KEY.test(key)) fail(where, `unknown field "${key}"`);
+    else if (dayCount && Number(key.slice(3)) > dayCount) fail(where, `"${key}" is outside the conference dates`);
+    if (!Array.isArray(slot[key]) || !slot[key].length || !slot[key].every(isText)) {
+      fail(where, `"${key}" must be a list of text items`);
+    }
+  }
+});
 
 // calls.yml
 const calls = read("calls");
-requireUniqueIds("calls.yml", calls);
-calls.forEach((call) => {
-  const where = `calls.yml "${call.id}"`;
-  requireText(where, call, ["id", "title", "summary", "description"]);
-  if (!["not_open", "open", "closed"].includes(call.status)) fail(where, `invalid status "${call.status}"`);
-  if (call.status === "open" && !isHttpsUrl(call.form_url)) fail(where, "an open call needs an https form_url");
-  requireOptionalUrl(where, call, "form_url");
+const callIds = new Set();
+calls.forEach((call, index) => {
+  const where = `calls.yml[${index}]`;
+  requireText(where, call, ["id", "title", "subtitle", "panel_title", "form_label", "deadline_label"]);
+  if (callIds.has(call.id)) fail(where, `duplicate id "${call.id}"`);
+  callIds.add(call.id);
+  if (!call.paragraphs?.length || !call.paragraphs.every(isText)) fail(where, '"paragraphs" must be a list of text');
+  call.panel_items.forEach((item) => requireText(where, item, ["icon", "text"]));
+  requireOptionalHttps(where, call, "form_url");
   if (!milestoneIds.has(call.deadline)) fail(where, `deadline "${call.deadline}" is not an id in dates.yml`);
+});
+
+// committee.yml
+const committee = read("committee");
+for (const group of ["keynotes", "organizing", "advisory"]) {
+  committee[group].forEach((person, index) => {
+    const where = `committee.yml ${group}[${index}]`;
+    requireText(where, person, ["name", "title"]);
+    requireOptionalHttps(where, person, "url");
+    if (person.photo != null && !isHttpsUrl(person.photo) && !String(person.photo).startsWith("/assets/img/")) {
+      fail(where, '"photo" must be an https:// link or a /assets/img/ path');
+    }
+  });
+}
+
+// sponsors.yml
+read("sponsors").forEach((sponsor, index) => {
+  requireText(`sponsors.yml[${index}]`, sponsor, ["name"]);
+  requireOptionalHttps(`sponsors.yml[${index}]`, sponsor, "url");
 });
 
 // travel.yml
 const travel = read("travel");
-requireOptionalUrl("travel.yml venue", travel.venue, "map_url");
-if (travel.venue.name && !isText(travel.venue.address)) fail("travel.yml venue", 'a named venue needs "address"');
-if (!isHttpsUrl(travel.directions_url)) fail("travel.yml", '"directions_url" must start with https://');
-travel.transit.forEach((item, index) => requireText(`travel.yml transit[${index}]`, item, ["title", "text"]));
-travel.airports.forEach((item, index) => requireText(`travel.yml airports[${index}]`, item, ["code", "name", "route"]));
-travel.hotels.forEach((item, index) => {
-  const where = `travel.yml hotels[${index}]`;
-  requireText(where, item, ["name"]);
-  if (!isHttpsUrl(item.url)) fail(where, '"url" must start with https://');
-});
-
-// committee.yml
-read("committee").forEach((group, groupIndex) => {
-  requireText(`committee.yml[${groupIndex}]`, group, ["name"]);
-  group.members.forEach((person, personIndex) => {
-    const where = `committee.yml "${group.name}" members[${personIndex}]`;
-    requireText(where, person, ["name", "affiliation"]);
-    requireOptionalUrl(where, person, "url");
+for (const group of ["transportation", "hotels"]) {
+  travel[group].forEach((link, index) => {
+    const where = `travel.yml ${group}[${index}]`;
+    requireText(where, link, ["label"]);
+    if (!isHttpsUrl(link.url)) fail(where, '"url" must start with https://');
   });
-});
-
-// pastMeetings.yml
-read("pastMeetings").forEach((meeting, index) => {
-  const where = `pastMeetings.yml[${index}]`;
-  if (!Number.isInteger(meeting.year)) fail(where, '"year" must be a number');
-  requireText(where, meeting, ["host", "location"]);
-  requireOptionalUrl(where, meeting, "url");
-});
+}
 
 if (errors.length) {
   console.error(`Data validation failed with ${errors.length} problem(s):`);

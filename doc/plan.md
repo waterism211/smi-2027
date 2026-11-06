@@ -1,6 +1,6 @@
 # SMI 2027 网站计划
 
-状态：**M1 草稿版已部署**：https://waterism211.github.io/smi-2027/ （公开仓库 `waterism211/smi-2027`；保持草稿模式，Section 确认前不对外推广；之后可转移到 ASA-SII 组织）
+状态：**已按 SMI 2026 版式重建并发布（2026-11-06，用户确认发布）**；仍为草稿模式：https://waterism211.github.io/smi-2027/ （公开仓库 `waterism211/smi-2027`；保持草稿模式，Section 确认前不对外推广；之后可转移到 ASA-SII 组织）
 最后更新：2026-11-04
 
 ## 1. 目标
@@ -21,6 +21,17 @@
 | 托管 | 仓库根目录 legacy Pages，无 license | 代码不直接复制，需要复用时先征得同意 |
 
 内容版块：About、Important Dates、Schedule、Call for Student Papers、Call for Posters、Call for Short Courses、Keynotes、Organizing Committee、Scientific Advisory Panel、Institutional Support、Student Support、Proceedings（SDSI 特刊）、Travel & Accommodation、Group Photos、Contact。
+
+## 2a. 版式决定（2026-11-06，用户确认）
+
+导航、版块顺序、日程 tab 和页面样式严格沿用 SMI 2026：单页长站，导航为 About、Important Dates、Schedule、Call for Papers、Committee、Sponsors、Contact；日程为 All Days、Day 1–3 共 4 个 tab。此决定取代第 3 节的多页结构和自定义视觉，Eleventy + YAML 不变。
+
+- 只替换配色为 UMD 红和金。Important Dates 单独成段（2026 本来如此）。
+- 会议：June 2-4, 2027；会场 Adele H. Stamp Student Union；酒店 The Hotel at the University of Maryland；Keynote：Hongtu Zhu。
+- 页眉背景放 DC 风景图、Maryland 标志和大脑图片。Contact 放用户本人信息。
+- 2026 中未确认的内容（表单、资助金额、特刊、赞助）不照抄，写待公布。
+- 与 2026 的差异：页眉加 DC 背景、Maryland 标志和大脑图；顶部保留草稿提示；页脚加图片署名；没有内容的部分（获奖名单、合影、PDF、社交图标、电话）暂不显示；修复 2026 的错别字和页脚链接不可见问题。
+- CSS 和 JS 取自 2026 原文件（该仓库无 license，同属 ASA-SII 会议系列，建议向 Section 确认）。
 
 ## 3. 建议方案（待确认）
 

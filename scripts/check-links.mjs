@@ -24,6 +24,9 @@ const idsFor = (file) =>
 
 const errors = [];
 const external = new Map();
+// These statuses usually mean a site blocks scripts, so a person must check the link.
+const BLOCKS_BOTS = [401, 403, 429];
+const unverified = [];
 
 function resolveFile(path) {
   const relative = path.replace(/^\/+/, "");
@@ -80,6 +83,10 @@ if (checkExternal) {
           signal: AbortSignal.timeout(20000),
           headers: { "User-Agent": "Mozilla/5.0 (compatible; smi-2027-link-check)" },
         });
+        if (BLOCKS_BOTS.includes(response.status)) {
+          unverified.push(`${url} returned HTTP ${response.status}`);
+          return null;
+        }
         return response.ok ? null : `${where}: ${url} returned HTTP ${response.status}`;
       } catch (error) {
         return `${where}: ${url} failed: ${error.cause?.code ?? error.message}`;
@@ -87,6 +94,11 @@ if (checkExternal) {
     }),
   );
   errors.push(...results.filter(Boolean));
+}
+
+if (unverified.length) {
+  console.warn(`Check these ${unverified.length} link(s) in a browser, because the sites blocked the script:`);
+  unverified.forEach((message) => console.warn(`  - ${message}`));
 }
 
 if (errors.length) {

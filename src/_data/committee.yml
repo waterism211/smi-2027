@@ -1,5 +1,8 @@
-# Each member needs: name, affiliation. Optional: role, url.
-- name: Organizing Committee
-  members: []
-- name: Scientific Advisory Panel
-  members: []
+# Each person needs: name, title. Optional: url, photo (https URL or /assets/img/ path).
+keynotes:
+  - name: Prof. Hongtu Zhu
+    title: University of North Carolina at Chapel Hill
+    url: https://sph.unc.edu/adv_profile/hongtu-zhu-phd/
+    photo: https://sph.unc.edu/wp-content/uploads/sites/112/2023/04/zhu-hongtu-2023.jpg
+organizing: []
+advisory: []

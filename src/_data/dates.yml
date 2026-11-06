@@ -1,6 +1,12 @@
-# Each date is "TBA" or a quoted "YYYY-MM-DD". Calls refer to these rows by id.
-- { id: session-proposals, label: Invited session proposals due, date: TBA }
-- { id: short-courses, label: Short-course proposals due, date: TBA }
-- { id: student-papers, label: Best student paper submissions due, date: TBA }
-- { id: posters, label: Poster abstracts due, date: TBA }
-- { id: registration, label: Registration opens, date: TBA }
+# date is display text, such as TBA, March 2027 or March 15, 2027. url is optional.
+# Calls refer to rows by id. The Conference Dates row is added from site.yml.
+- { id: session-proposals, label: Call for Invited Session Proposals, date: TBA }
+- { id: website-launch, label: SMI 2027 Website Launch, date: TBA }
+- { id: keynote-announcement, label: Keynote Speakers Announcement, date: TBA }
+- { id: student-papers, label: Best Student Paper Submission Deadline, date: TBA }
+- { id: award-selection, label: Best Paper Awards Selection, date: TBA }
+- { id: session-selection, label: Invited & Contributed Sessions Selection Proposals, date: TBA }
+- { id: posters, label: Poster Abstract Submission Deadline, date: TBA }
+- { id: short-courses, label: Short-Course/Tutorial Submission Deadline, date: TBA }
+- { id: registration, label: SMI-2027 Registration, date: TBA, strong: true }
+- { id: final-program, label: Final Program Announcement, date: TBA }

@@ -1,42 +1,58 @@
 # Keep draft: true until the ASA Statistics in Imaging Section confirms the host.
-# Draft mode shows a notice on every page and asks search engines not to index.
+# Draft mode shows a notice at the top of the page and asks search engines not to index.
 draft: true
 
-name: Statistical Methods in Imaging (SMI) 2027
+title: Statistical Methods in Imaging (SMI) 2027
 short_name: SMI 2027
-organizer: ASA Statistics in Imaging Section
-organizer_url: https://www.statsinimaging.org/
-host: University of Maryland, College Park
-location: College Park, Maryland
+subtitle: ASA Statistics in Imaging Section Conference
+location: University of Maryland, College Park, MD
 
-# Use "TBA" for both, or quoted dates such as "2027-06-03".
+# Quoted YYYY-MM-DD dates. Schedule tabs and date text are generated from these.
 conference_dates:
-  start: TBA
-  end: TBA
+  start: "2027-06-02"
+  end: "2027-06-04"
 
-# Use null until a conference email address exists.
-contact_email: null
+contact:
+  name: Shitao Fan
+  email: sfan211@terpmail.umd.edu
+  location: University of Maryland, College Park, MD
 
-description: >-
-  The annual conference of the ASA Statistics in Imaging Section, bringing together
-  statisticians, data scientists and imaging researchers.
+venue:
+  name: Adele H. Stamp Student Union
+  address: 3972 Campus Drive, College Park, MD 20742
+  url: https://stamp.umd.edu/
+  map_url: https://map.umd.edu/
 
-about:
-  - >-
-    The Statistical Methods in Imaging (SMI) conference is the annual meeting of the
-    American Statistical Association's Statistics in Imaging Section. It brings together
-    statisticians, biostatisticians, data scientists and imaging researchers to share new
-    methods and applications across the imaging sciences.
-  - >-
-    SMI 2027 is planned for the University of Maryland in College Park. Dates, venue and
-    program details will be posted here as they are confirmed.
-
-# Each item needs: date ("YYYY-MM-DD"), text, and optionally url.
-announcements: []
+organizer_note: >-
+  This conference is organized at the University of Maryland, College Park, for the
 
 nav:
-  - { label: Home, url: / }
-  - { label: Calls, url: /calls/ }
-  - { label: Venue & Travel, url: /venue/ }
-  - { label: Committee, url: /committee/ }
-  - { label: Past Meetings, url: /past-meetings/ }
+  - { label: About, url: "#about" }
+  - { label: Important Dates, url: "#dates" }
+  - { label: Schedule, url: "#schedule" }
+  - { label: Call for Papers, url: "#call-for-papers" }
+  - { label: Committee, url: "#committee" }
+  - { label: Sponsors, url: "#sponsors" }
+  - { label: Contact, url: "#contact" }
+
+# style: primary | secondary. Replace a url with the form link when the form opens.
+buttons:
+  - { label: SMI Program, url: "#schedule", style: primary }
+  - { label: Submit A Special Session Proposal, url: "#dates", style: secondary }
+  - { label: Poster Abstract Submissions, url: "#call-for-posters", style: secondary }
+  - { label: Short Course/Tutorial Submissions, url: "#call-for-short-courses", style: secondary }
+  - { label: Best Student Paper Award Submissions, url: "#call-for-papers", style: secondary }
+  - { label: ASA/SDSI special issue, url: "#student-support", style: primary }
+  - { label: Register Now, url: "#dates", style: primary }
+  - { label: Travel Info, url: "#travel-hotels", style: primary }
+  - { label: Travel Award Application, url: "#student-support", style: primary }
+
+resources:
+  - { icon: fa-graduation-cap, label: ASA Statistics in Imaging Section (SII), url: "https://www.statsinimaging.org/" }
+  - { icon: fa-university, label: "University of Maryland, College Park", url: "https://umd.edu/" }
+  - { icon: fa-home, label: "Venue: Adele H. Stamp Student Union", url: "https://stamp.umd.edu/" }
+  - { icon: fa-bed, label: "Hotel: The Hotel at the University of Maryland", url: "https://www.thehotelumd.com/" }
+
+credits:
+  - { text: "Washington Monument at Sunset with Icy Tidal Basin", url: "https://commons.wikimedia.org/wiki/File:Washington_Monument_at_Sunset_with_Icy_Tidal_Basin.jpg", note: "by Jonmallard, CC BY 4.0" }
+  - { text: "Brain illustration", url: "https://commons.wikimedia.org/wiki/File:Brain_Lateral_(NIH_BioArt_60).png", note: "courtesy of NIAID, NIH BioArt" }

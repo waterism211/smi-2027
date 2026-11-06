@@ -9,11 +9,12 @@
   },
   "scripts": {
     "validate": "node scripts/validate-data.mjs",
-    "build": "npm run validate && eleventy",
+    "build": "npm run validate && npm run clean && eleventy",
     "dev": "npm run validate && eleventy --serve --port=8080",
     "check:links": "node scripts/check-links.mjs",
     "check:external": "node scripts/check-links.mjs --external",
-    "smoke": "npm run build && npm run check:links"
+    "smoke": "npm run build && npm run check:links",
+    "clean": "node -e \"fs.rmSync('_site',{recursive:true,force:true})\""
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.8",

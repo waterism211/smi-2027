@@ -1,22 +1,9 @@
-venue:
-  name: null      # Use null until the venue is confirmed.
-  address: null
-  map_url: null
-
-directions_url: https://cvs.umd.edu/visit/maps-directions
-
-transit:
-  - title: Metrorail
-    text: College Park-U of Md station is on the Green Line.
-  - title: Shuttle-UM
-    text: >-
-      Shuttle-UM buses to campus stop on the east side of the Metro station. Service is
-      open to everyone and no ID is required.
-
-airports:
-  - { code: BWI, name: Baltimore/Washington International Thurgood Marshall Airport, route: MARC train to Union Station, then Metrorail to College Park. }
-  - { code: DCA, name: Ronald Reagan Washington National Airport, route: Metrorail with a transfer to the Green Line. }
-  - { code: IAD, name: Washington Dulles International Airport, route: Metrorail with a transfer to the Green Line. }
-
-# Each item needs: name, url. Optional: note.
-hotels: []
+transportation:
+  - { label: "Shuttle-UM campus bus service, routes and schedules", url: "https://transportation.umd.edu/shuttle-um" }
+  - { label: "Washington Metro (WMATA), Green Line to College Park-U of Md", url: "https://www.wmata.com/" }
+  - { label: "Baltimore/Washington International Airport (BWI)", url: "https://www.bwiairport.com/" }
+  - { label: "Ronald Reagan Washington National Airport (DCA)", url: "https://www.flyreagan.com/" }
+  - { label: "Washington Dulles International Airport (IAD)", url: "https://www.flydulles.com/" }
+  - { label: "Directions to the Stamp Student Union and parking", url: "https://stamp.umd.edu/visit/directions-parking" }
+hotels:
+  - { label: "The Hotel at the University of Maryland", url: "https://www.thehotelumd.com/" }

@@ -1,74 +1,331 @@
 ---
 layout: layouts/base.njk
-pageDescription: Statistical Methods in Imaging (SMI) 2027, planned for the University of Maryland, College Park.
 ---
-<section class="hero">
-  <div class="wrap hero__inner">
-    <div class="hero__text">
-      <p class="hero__eyebrow">{{ site.organizer }}</p>
-      <h1>Statistical Methods in Imaging <span>2027</span></h1>
-      <dl class="hero__facts">
-        <div><dt>When</dt><dd>{{ site.conference_dates | dateRange }}</dd></div>
-        <div><dt>Where</dt><dd>{{ site.host }}</dd></div>
-      </dl>
-      <p class="hero__actions">
-        <a class="button" href="/calls/">See the calls</a>
-        <a class="button button--quiet" href="#key-dates">Key dates</a>
-      </p>
+{% macro person(member) %}
+<div class="committee-member">
+    <div class="member-photo">
+        {% if member.photo %}<img src="{{ member.photo }}" alt="{{ member.name }}">{% else %}<i class="fas fa-user" aria-hidden="true"></i>{% endif %}
     </div>
-    <svg class="hero__map" viewBox="0 0 {{ heroMap.width }} {{ heroMap.height }}" aria-hidden="true" focusable="false">
-      {% for layer in heroMap.layers %}<path fill="{{ layer.fill }}" d="{{ layer.path }}"/>{% endfor %}
-    </svg>
-  </div>
-</section>
+    <div class="member-name">{% if member.url %}<a href="{{ member.url }}">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}</div>
+    <div class="member-title">{{ member.title }}</div>
+</div>
+{% endmacro %}
+{% set days = site.conference_dates | conferenceDays %}
+{% if site.draft %}<p class="draft-notice">Draft preview. Details have not been officially announced.</p>{% endif %}
 
-{% if site.announcements.length %}
-<section class="band band--tint" aria-labelledby="announcements-title">
-  <div class="wrap">
-    <h2 id="announcements-title">Announcements</h2>
-    <ul class="announcements">
-      {% for item in site.announcements %}
-      <li>
-        <time datetime="{{ item.date }}">{{ item.date | displayDate }}</time>
-        {% if item.url %}<a href="{{ item.url }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
-{% endif %}
-
-<section class="band">
-  <div class="wrap split">
-    <div>
-      <h2>About the conference</h2>
-      {% for paragraph in site.about %}<p>{{ paragraph }}</p>{% endfor %}
+<!-- Header -->
+<header>
+    <div class="header-bg"></div>
+    <div class="container">
+        <div class="header-content">
+            <a class="institution-logo" href="https://umd.edu/"><img src="/assets/img/umd-wordmark.svg" alt="University of Maryland"></a>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="/assets/img/brain.png" alt="Illustration of a human brain">
+                </div>
+                <div class="header-text">
+                    <h1>{{ site.title }}</h1>
+                    <div class="subtitle">{{ site.subtitle }}</div>
+                </div>
+            </div>
+            <div class="date-location">
+                <i class="fas fa-calendar-alt"></i> {{ site.conference_dates | dateRange }} &nbsp; | &nbsp;
+                <i class="fas fa-map-marker-alt"></i> {{ site.location }}
+            </div>
+            <div class="cta-buttons">
+                {% for button in site.buttons %}<a href="{{ button.url }}" class="btn btn-{{ button.style }}">{{ button.label }}</a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    <div id="key-dates">
-      <h2>Key dates</h2>
-      <table class="dates">
-        <thead><tr><th scope="col">Milestone</th><th scope="col">Date</th></tr></thead>
-        <tbody>
-          {% for milestone in dates %}
-          <tr><td>{{ milestone.label }}</td><td>{{ milestone.date | displayDate }}</td></tr>
-          {% endfor %}
-          <tr class="dates__conference"><td>Conference</td><td>{% if site.conference_dates.start == "TBA" %}TBA{% else %}{{ site.conference_dates | dateRange }}{% endif %}</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+</header>
 
-<section class="band band--tint">
-  <div class="wrap">
-    <h2>Ways to take part</h2>
-    <ul class="card-grid">
-      {% for call in calls %}
-      <li class="card">
-        <h3><a href="/calls/#{{ call.id }}">{{ call.title }}</a></h3>
-        <p>{{ call.summary }}</p>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</section>
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <div class="nav-container">
+            <div class="nav-logo">{{ site.short_name }}</div>
+            <ul class="nav-links">
+                {% for item in site.nav %}<li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                {% endfor %}
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container">
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About the Conference</h2>
+            <p>The premier event for statisticians, data scientists, and imaging researchers</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>The University of Maryland (UMD), College Park is proud to host the 2027 <a href="https://www.statsinimaging.org/">ASA-SII</a>
+                    <a href="https://www.statsinimaging.org/events_smi/">Statistical Methods in Imaging (SMI)</a> Conference. We are excited to bring together the statistical imaging community in the Washington, DC area.</p>
+                <p>UMD and the surrounding community are home to a large group of statisticians, biostatisticians, mathematicians, bioinformaticians, and computational scientists, creating a vibrant environment for research and collaboration in imaging research.</p>
+            </div>
+            <div class="resources">
+                <h3>Conference Resources &amp; Facilities</h3>
+                <ul class="resource-list">
+                    {% for resource in site.resources %}<li><i class="fas {{ resource.icon }}"></i> <a href="{{ resource.url }}">{{ resource.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Dates Section -->
+    <section id="dates">
+        <div class="section-header">
+            <h2>Important Dates</h2>
+            <p>Mark your calendar for these key milestones</p>
+        </div>
+        <table class="dates-table">
+            <thead>
+                <tr>
+                    <th>Milestone</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for milestone in dates %}
+                <tr>
+                    <td>{% if milestone.url %}<a href="{{ milestone.url }}">{% endif %}{% if milestone.strong %}<strong>{{ milestone.label }}</strong>{% else %}{{ milestone.label }}{% endif %}{% if milestone.url %}</a>{% endif %}</td>
+                    <td>{{ milestone.date }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td><strong>Conference Dates</strong></td>
+                    <td><strong>{{ site.conference_dates | dateRange }} ({{ site.conference_dates | weekdays }})</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule">
+        <div class="section-header">
+            <h2>Conference Schedule</h2>
+            <p>Three days of presentations, networking, and learning</p>
+            <br>
+            <strong><a href="{{ site.venue.url }}">Venue: {{ site.venue.name }}</a></strong>
+        </div>
+        <div class="schedule-tabs">
+            <button class="tab-btn active" data-tab="alldays">All Days</button>
+            {% for day in days %}<button class="tab-btn" data-tab="{{ day.id }}">{{ day.label }}</button>
+            {% endfor %}
+        </div>
+
+        <!-- ALL DAYS VIEW -->
+        <div class="tab-content active" id="alldays">
+            <div class="schedule-table-wrapper">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            {% for day in days %}<th>{{ day.label }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for slot in schedule.slots %}
+                        <tr>
+                            <td>{{ slot.time }}</td>
+                            {% for day in days %}
+                            <td>{% for item in slot[day.id] %}{% if not loop.first %}<hr>{% endif %}<div class="session-item">{{ item }}</div>{% endfor %}</td>
+                            {% endfor %}
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td>TBA</td>
+                            {% for day in days %}<td>The schedule will be announced here.</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {% for day in days %}
+        <div class="tab-content" id="{{ day.id }}">
+            <div class="schedule-day">
+                {% for slot in schedule.slots %}{% if slot[day.id] %}
+                <div class="time-slot">
+                    <div class="time">{{ slot.time }}</div>
+                    {% for item in slot[day.id] %}<div class="event">{{ item }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}{% else %}
+                <div class="time-slot">
+                    <div class="time">TBA</div>
+                    <div class="event">The schedule will be announced here.</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+    {% for call in calls %}
+    <section id="{{ call.id }}">
+        <div class="section-header">
+            <h2>{{ call.title }}</h2>
+            <p>{{ call.subtitle }}</p>
+        </div>
+        <div class="cfp-content">
+            <div class="cfp-text">
+                {% for paragraph in call.paragraphs %}<p>{{ paragraph }}</p>
+                {% endfor %}
+            </div>
+            <div class="award-info">
+                <h3>{{ call.panel_title }}</h3>
+                {% if call.panel_items.length %}
+                <ul class="resource-list">
+                    {% for item in call.panel_items %}<li><i class="fas {{ item.icon }}"></i> {{ item.text }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="cta-buttons">
+                    {% if call.form_url %}<a href="{{ call.form_url }}" class="btn btn-primary">{{ call.form_label }}</a>
+                    {% else %}<span class="btn btn-primary btn-pending">Submission form coming soon</span>{% endif %}
+                </div>
+                <div class="deadline">
+                    <h4>{{ call.deadline_label }}</h4>
+                    <p>{{ dates | milestoneDate(call.deadline) }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+
+    <!-- Committee Section -->
+    <section id="committee">
+        <div class="section-header">
+            <h2>Keynote Speakers</h2>
+        </div>
+        <div class="committee-grid">
+            {% for member in committee.keynotes %}{{ person(member) }}{% endfor %}
+        </div>
+        <br/>
+        <hr>
+
+        <div class="section-header">
+            <h2>Organizing Committee</h2>
+            <p>Leading the organization of SMI 2027</p>
+        </div>
+        {% if committee.organizing.length %}
+        <div class="committee-grid">
+            {% for member in committee.organizing %}{{ person(member) }}{% endfor %}
+        </div>
+        {% else %}<p class="empty-note">Members will be announced here.</p>{% endif %}
+        <br/>
+        <hr>
+
+        <div class="section-header">
+            <h2>Scientific Advisory Panel</h2>
+        </div>
+        {% if committee.advisory.length %}
+        <div class="committee-grid">
+            {% for member in committee.advisory %}{{ person(member) }}{% endfor %}
+        </div>
+        {% else %}<p class="empty-note">Members will be announced here.</p>{% endif %}
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors">
+        <div class="section-header">
+            <h2>Institutional Support</h2>
+            <p>We gratefully acknowledge our sponsors and supporters</p>
+        </div>
+        {% if sponsors.length %}
+        <div class="sponsors-grid">
+            {% for sponsor in sponsors %}
+            <div class="sponsor">{% if sponsor.url %}<a href="{{ sponsor.url }}">{{ sponsor.name }}</a>{% else %}{{ sponsor.name }}{% endif %}</div>
+            {% endfor %}
+        </div>
+        {% else %}<p class="empty-note">Sponsors will be announced here.</p>{% endif %}
+    </section>
+
+    <!-- Student Support Section -->
+    <section id="student-support">
+        <div class="section-header">
+            <h2>Student Support</h2>
+            <p>Opportunities for student participation and development</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>We are committed to supporting student participation in SMI 2027. Details on student travel awards, Best Paper Awards, and student networking and mentorship opportunities will be announced here.</p>
+                <p><em>Note: Student support is subject to funding availability</em></p>
+            </div>
+            <div class="resources">
+                <h3>Proceedings</h3>
+                <p>Details on SMI 2027 proceedings will be announced here.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel, Hotels, and Accommodation -->
+    <section id="travel-hotels">
+        <div class="section-header">
+            <h2>Travel &amp; Accommodation</h2>
+            <p>Local transportation and hotels</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p><em>Local transportation</em></p>
+                <ul class="resource-list">
+                    {% for link in travel.transportation %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="about-text">
+                <p><em>Hotels &amp; Accommodation</em></p>
+                <ul class="resource-list">
+                    {% for link in travel.hotels %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer id="contact">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-user"></i> {{ site.contact.name }}</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> {{ site.contact.location }}</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About the Conference</a>
+                <a href="#dates">Important Dates</a>
+                <a href="#schedule">Conference Schedule</a>
+                <a href="#call-for-papers">Call for Papers</a>
+                <a href="#committee">Organizing Committee</a>
+            </div>
+            <div class="footer-section">
+                <h3>Venue Information</h3>
+                <p>The conference will be held at the <a href="{{ site.venue.url }}">{{ site.venue.name }},</a> University of Maryland, {{ site.venue.address }}.</p>
+                <a href="{{ site.venue.map_url }}">Campus Map</a>
+                <a href="#travel-hotels">Travel Information</a>
+                <a href="#travel-hotels">Accommodation</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>{{ site.organizer_note }} <a href="https://www.statsinimaging.org/">ASA Statistics in Imaging Section</a>.</p>
+            <p>Images: {% for credit in site.credits %}<a href="{{ credit.url }}">{{ credit.text }}</a> {{ credit.note }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
+            <p>&copy; SMI 2027 Conference. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
