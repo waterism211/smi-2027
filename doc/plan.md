@@ -29,6 +29,7 @@
 - 只替换配色为 UMD 红和金。Important Dates 单独成段（2026 本来如此）。
 - 会议：June 2-4, 2027；会场 Adele H. Stamp Student Union；酒店 The Hotel at the University of Maryland；Keynote：Hongtu Zhu。
 - 页眉背景放 DC 风景图、Maryland 标志和大脑图片。Contact 放用户本人信息。
+- 日期规则（2026-11-06，用户确认）：Important Dates 取 2026 的日期加一年；会议日期不变；加一年后已过去的放当月（November 2026）。
 - 2026 中未确认的内容（表单、资助金额、特刊、赞助）不照抄，写待公布。
 - 与 2026 的差异：页眉加 DC 背景、Maryland 标志和大脑图；顶部保留草稿提示；页脚加图片署名；没有内容的部分（获奖名单、合影、PDF、社交图标、电话）暂不显示；修复 2026 的错别字和页脚链接不可见问题。
 - CSS 和 JS 取自 2026 原文件（该仓库无 license，同属 ASA-SII 会议系列，建议向 Section 确认）。
