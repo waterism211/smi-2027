@@ -2,6 +2,7 @@
 
 ## 2026-11-06
 
+- 计划更新并实施：Keynote 和委员会名单的人名改为黑色，不用 UMD 红。经用户确认后发布。
 - 计划更新并实施：页眉背景换成用户提供的两张樱花图并交替显示，去掉大脑图；删除 Student Support 版块和 3 个页眉按钮（Travel Award Application、Travel Info、ASA/SDSI special issue）；参考历届 SMI 重写页面文字，不再沿用 2026 原文。经用户确认后发布。
 - 计划更新：Hongtu Zhu 已确认担任 Keynote（用户告知）。
 - 计划更新并实施：Important Dates 按 2026 日期加一年填写；网站上线日期（加一年后为 2026 年 9 月，已过）改为 November 2026。短课程截止日期按 2026 日期表的 March 01（2026 版块里的 March 20 是未同步的旧值）。

@@ -508,8 +508,17 @@ section {
 
 .member-name {
     font-weight: 600;
-    color: var(--primary);
+    color: #000000;
     margin-bottom: var(--spacing-sm);
+}
+
+.member-name a,
+.member-name a:hover {
+    color: inherit;
+}
+
+.member-name a:hover {
+    text-decoration: underline;
 }
 
 .member-title {
