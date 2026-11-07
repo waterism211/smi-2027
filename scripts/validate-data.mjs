@@ -64,11 +64,6 @@ site.resources.forEach((item, index) => {
   requireText(where, item, ["icon", "label"]);
   if (!isHttpsUrl(item.url)) fail(where, '"url" must start with https://');
 });
-site.credits.forEach((item, index) => {
-  const where = `site.yml credits[${index}]`;
-  requireText(where, item, ["text", "note"]);
-  if (!isHttpsUrl(item.url)) fail(where, '"url" must start with https://');
-});
 
 // dates.yml
 const dates = read("dates");

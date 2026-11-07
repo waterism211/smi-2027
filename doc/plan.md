@@ -27,11 +27,16 @@
 导航、版块顺序、日程 tab 和页面样式严格沿用 SMI 2026：单页长站，导航为 About、Important Dates、Schedule、Call for Papers、Committee、Sponsors、Contact；日程为 All Days、Day 1–3 共 4 个 tab。此决定取代第 3 节的多页结构和自定义视觉，Eleventy + YAML 不变。
 
 - 只替换配色为 UMD 红和金。Important Dates 单独成段（2026 本来如此）。
-- 会议：June 2-4, 2027；会场 Adele H. Stamp Student Union；酒店 The Hotel at the University of Maryland；Keynote：Hongtu Zhu。
+- 会议：June 2-4, 2027；会场 Adele H. Stamp Student Union；酒店 The Hotel at the University of Maryland；Keynote：Hongtu Zhu（用户告知本人已确认，2026-11-06）。
 - 页眉背景放 DC 风景图、Maryland 标志和大脑图片。Contact 放用户本人信息。
 - 日期规则（2026-11-06，用户确认）：Important Dates 取 2026 的日期加一年；会议日期不变；加一年后已过去的放当月（November 2026）。
 - 2026 中未确认的内容（表单、资助金额、特刊、赞助）不照抄，写待公布。
-- 与 2026 的差异：页眉加 DC 背景、Maryland 标志和大脑图；顶部保留草稿提示；页脚加图片署名；没有内容的部分（获奖名单、合影、PDF、社交图标、电话）暂不显示；修复 2026 的错别字和页脚链接不可见问题。
+- 与 2026 的差异：页眉加 DC 背景和 Maryland 标志；顶部保留草稿提示；没有内容的部分（获奖名单、合影、PDF、社交图标、电话）暂不显示；修复 2026 的错别字和页脚链接不可见问题。
+- 内容调整（2026-11-06，用户确认）：
+  - 页眉背景换成用户提供的两张樱花图（杰斐逊纪念堂、华盛顿纪念碑），两张交替淡入淡出；去掉大脑图。图片来源和授权待用户确认，正式对外前需解决。
+  - 删除 Student Support 版块（其中的 Proceedings 一并删除）。
+  - 页眉按钮删除倒数第 1、2、4 个：Travel Award Application、Travel Info、ASA/SDSI special issue。导航栏和 Travel & Accommodation 版块不变。
+  - 页面文字不再沿用 2026 原文，参考历届 SMI（2018、2022、2024、2025 官网和 Section 页面）重写。只陈述历届已发生的事实；2027 未确认的规则（奖金、资格、投稿要求）写“随表单公布”。导航、版块顺序和样式不变。
 - CSS 和 JS 取自 2026 原文件（该仓库无 license，同属 ASA-SII 会议系列，建议向 Section 确认）。
 
 ## 3. 建议方案（待确认）

@@ -26,11 +26,10 @@ When a form opens, add its link as `form_url` in `calls.yml` and replace the mat
 
 | File | Source | License |
 |---|---|---|
-| `dc-washington-monument.jpg` | [Jonmallard, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Washington_Monument_at_Sunset_with_Icy_Tidal_Basin.jpg) | CC BY 4.0, credited in the footer |
-| `brain.png` | [NIAID NIH BioArt, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brain_Lateral_(NIH_BioArt_60).png) | Public domain |
+| `dc-cherry-blossoms-jefferson.jpg`, `dc-cherry-blossoms-monument.jpg` | Provided by the organizers | Source and license to be confirmed |
 | `umd-wordmark.svg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:University_of_Maryland_wordmark.svg) | Listed as public domain; a University of Maryland trademark |
 
-Replace the wordmark with the official logo file from the [UMD brand team](https://brand.umd.edu/visual-identity/logos) before the public launch.
+Before the public launch, confirm the source and license of the header photos, and replace the wordmark with the official logo file from the [UMD brand team](https://brand.umd.edu/visual-identity/logos). The header shows the two photos in turn; `src/assets/css/site.css` sets this under `.header-bg`.
 
 ## Run the site locally
 

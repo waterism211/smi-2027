@@ -4,7 +4,7 @@ draft: true
 
 title: Statistical Methods in Imaging (SMI) 2027
 short_name: SMI 2027
-subtitle: ASA Statistics in Imaging Section Conference
+subtitle: The Annual Meeting of the ASA Statistics in Imaging Section
 location: University of Maryland, College Park, MD
 
 # Quoted YYYY-MM-DD dates. Schedule tabs and date text are generated from these.
@@ -24,7 +24,7 @@ venue:
   map_url: https://map.umd.edu/
 
 organizer_note: >-
-  This conference is organized at the University of Maryland, College Park, for the
+  Organized at the University of Maryland, College Park, for the
 
 nav:
   - { label: About, url: "#about" }
@@ -37,22 +37,15 @@ nav:
 
 # style: primary | secondary. Replace a url with the form link when the form opens.
 buttons:
-  - { label: SMI Program, url: "#schedule", style: primary }
-  - { label: Submit A Special Session Proposal, url: "#dates", style: secondary }
-  - { label: Poster Abstract Submissions, url: "#call-for-posters", style: secondary }
-  - { label: Short Course/Tutorial Submissions, url: "#call-for-short-courses", style: secondary }
-  - { label: Best Student Paper Award Submissions, url: "#call-for-papers", style: secondary }
-  - { label: ASA/SDSI special issue, url: "#student-support", style: primary }
-  - { label: Register Now, url: "#dates", style: primary }
-  - { label: Travel Info, url: "#travel-hotels", style: primary }
-  - { label: Travel Award Application, url: "#student-support", style: primary }
+  - { label: Program, url: "#schedule", style: primary }
+  - { label: Propose an Invited Session, url: "#dates", style: secondary }
+  - { label: Submit a Poster, url: "#call-for-posters", style: secondary }
+  - { label: Propose a Short Course, url: "#call-for-short-courses", style: secondary }
+  - { label: Student Paper Competition, url: "#call-for-papers", style: secondary }
+  - { label: Registration, url: "#dates", style: primary }
 
 resources:
   - { icon: fa-graduation-cap, label: ASA Statistics in Imaging Section (SII), url: "https://www.statsinimaging.org/" }
   - { icon: fa-university, label: "University of Maryland, College Park", url: "https://umd.edu/" }
   - { icon: fa-home, label: "Venue: Adele H. Stamp Student Union", url: "https://stamp.umd.edu/" }
   - { icon: fa-bed, label: "Hotel: The Hotel at the University of Maryland", url: "https://www.thehotelumd.com/" }
-
-credits:
-  - { text: "Washington Monument at Sunset with Icy Tidal Basin", url: "https://commons.wikimedia.org/wiki/File:Washington_Monument_at_Sunset_with_Icy_Tidal_Basin.jpg", note: "by Jonmallard, CC BY 4.0" }
-  - { text: "Brain illustration", url: "https://commons.wikimedia.org/wiki/File:Brain_Lateral_(NIH_BioArt_60).png", note: "courtesy of NIAID, NIH BioArt" }

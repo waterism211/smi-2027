@@ -68,32 +68,39 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.58)), url("../img/dc-washington-monument.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.58)), url("../img/dc-cherry-blossoms-jefferson.jpg");
     background-size: cover;
-    background-position: center 40%;
+    background-position: center 65%;
     z-index: 1;
+}
+
+.header-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.58)), url("../img/dc-cherry-blossoms-monument.jpg");
+    background-size: cover;
+    background-position: center 35%;
+    opacity: 0;
+    animation: header-crossfade 16s ease-in-out infinite;
+}
+
+@keyframes header-crossfade {
+    0%, 40% { opacity: 0; }
+    50%, 90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header-bg::after {
+        animation: none;
+    }
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     margin-bottom: var(--spacing-md);
-}
-
-.logo {
-    width: 80px;
-    height: 80px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: var(--spacing-md);
-}
-
-.logo img {
-    width: 66px;
-    height: auto;
 }
 
 .header-text h1 {
@@ -702,10 +709,6 @@ footer {
     display: block;
     width: 100%;
     height: auto;
-}
-
-.logo {
-    flex-shrink: 0;
 }
 
 .btn-pending {

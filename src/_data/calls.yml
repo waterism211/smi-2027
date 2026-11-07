@@ -1,41 +1,41 @@
 # form_url: null shows a "form coming soon" button. deadline must match an id in dates.yml.
 - id: call-for-papers
-  title: Call for Student Paper Award Competition
-  subtitle: Students are invited to submit their methodological research and imaging statistics applications.
+  title: Call for Student Papers
+  subtitle: Students can enter their imaging statistics research in the SMI 2027 paper competition.
   paragraphs:
-    - We welcome submissions in both theoretical statistical modeling, applied biostatistical and data-analytic discoveries in imaging, and ML/AI methods and algorithms.
-    - The conference provides an excellent platform for students to present their work, receive feedback from peers and mentors, and connect with leading experts in the field of statistical methods in imaging.
-  panel_title: Best Paper Competition
+    - We invite students to submit papers on statistical theory, methods, or applications in imaging, including machine learning and AI methods for imaging data.
+    - Eligibility rules and award details for 2027 will be posted with the submission form.
+  panel_title: Student Paper Competition
   panel_items:
-    - { icon: fa-award, text: Best Student Paper Award based on scientific contribution and innovation }
-    - { icon: fa-users, text: Peer-review process with domain experts }
-  form_label: Best Student Paper Submission Form
+    - { icon: fa-layer-group, text: "Tracks at recent meetings: Theory and Methods; Case Studies and Applications" }
+    - { icon: fa-award, text: Recent winners presented their work at the conference }
+  form_label: Submit a Student Paper
   form_url: null
-  deadline_label: Best Student Paper Submission Deadline
+  deadline_label: Student Paper Deadline
   deadline: student-papers
 
 - id: call-for-posters
-  title: Call for Poster Abstracts
-  subtitle: Statistics and imaging researchers are invited to submit abstracts and present posters of their work.
+  title: Call for Posters
+  subtitle: Share your work at the SMI 2027 poster session.
   paragraphs:
-    - We welcome poster submissions in theoretical statistical modeling, applied biostatistical inference, and imaging data-analytic discoveries.
-    - The conference provides an excellent platform for scholars to present their work and receive feedback from peers in the statistical methods in imaging network.
-  panel_title: Poster Submission Form
+    - We invite poster abstracts on statistical methods for imaging, from new theory and methods to case studies and software.
+    - Abstract requirements will be posted with the submission form.
+  panel_title: Poster Submission
   panel_items: []
-  form_label: Poster Submission Form
+  form_label: Submit a Poster Abstract
   form_url: null
-  deadline_label: Poster Submission Deadline
+  deadline_label: Poster Abstract Deadline
   deadline: posters
 
 - id: call-for-short-courses
-  title: Call for Short-Course Proposals
-  subtitle: Statistics and imaging researchers are invited to submit short-course proposals.
+  title: Call for Short Courses
+  subtitle: Propose a short course or tutorial for SMI 2027.
   paragraphs:
-    - We welcome submissions for short-courses in theoretical statistical modeling, applied biostatistical inference, and imaging data-analytics.
-    - The conference provides an excellent platform for scholars to show hands-on new protocols, methods, and interactive demonstrations.
-  panel_title: Short-Course Submission Form
+    - We invite proposals for short courses and tutorials that teach statistical methods, software, or analysis workflows for imaging data.
+    - Recent SMI tutorials have covered deep learning and generative AI, spatiotemporal analytics, and neuroimaging software. Proposal requirements will be posted with the submission form.
+  panel_title: Short Course Submission
   panel_items: []
-  form_label: Short-Course Submission Form
+  form_label: Submit a Short Course Proposal
   form_url: null
-  deadline_label: Short-Course Submission Deadline
+  deadline_label: Short Course Proposal Deadline
   deadline: short-courses

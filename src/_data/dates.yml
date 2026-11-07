@@ -1,12 +1,10 @@
-# date is display text, such as TBA, March 2027 or March 15, 2027. url is optional.
-# Calls refer to rows by id. The Conference Dates row is added from site.yml.
-- { id: session-proposals, label: Call for Invited Session Proposals, date: "February 10, 2027" }
-- { id: website-launch, label: SMI 2027 Website Launch, date: "November 2026" }
-- { id: keynote-announcement, label: Keynote Speakers Announcement, date: "December 2026" }
-- { id: student-papers, label: Best Student Paper Submission Deadline, date: "March 15, 2027" }
-- { id: award-selection, label: Best Paper Awards Selection, date: "April 2027" }
-- { id: session-selection, label: Invited & Contributed Sessions Selection Proposals, date: "February 2027" }
-- { id: posters, label: Poster Abstract Submission Deadline, date: "March 10, 2027" }
-- { id: short-courses, label: Short-Course/Tutorial Submission Deadline, date: "March 01, 2027" }
-- { id: registration, label: SMI-2027 Registration, date: "(starts) April 13, 2027", strong: true }
-- { id: final-program, label: Final Program Announcement, date: "April 30, 2027" }
+- { id: session-proposals, label: Invited session proposals due, date: "February 10, 2027" }
+- { id: website-launch, label: Conference website goes live, date: "November 2026" }
+- { id: keynote-announcement, label: Keynote speakers announced, date: "December 2026" }
+- { id: student-papers, label: Student papers due, date: "March 15, 2027" }
+- { id: award-selection, label: Student paper award winners selected, date: "April 2027" }
+- { id: session-selection, label: Invited and contributed sessions selected, date: "February 2027" }
+- { id: posters, label: Poster abstracts due, date: "March 10, 2027" }
+- { id: short-courses, label: Short course and tutorial proposals due, date: "March 01, 2027" }
+- { id: registration, label: Registration opens, date: "April 13, 2027", strong: true }
+- { id: final-program, label: Final program posted, date: "April 30, 2027" }

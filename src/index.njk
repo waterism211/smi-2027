@@ -20,9 +20,6 @@ layout: layouts/base.njk
         <div class="header-content">
             <a class="institution-logo" href="https://umd.edu/"><img src="/assets/img/umd-wordmark.svg" alt="University of Maryland"></a>
             <div class="logo-container">
-                <div class="logo">
-                    <img src="/assets/img/brain.png" alt="Illustration of a human brain">
-                </div>
                 <div class="header-text">
                     <h1>{{ site.title }}</h1>
                     <div class="subtitle">{{ site.subtitle }}</div>
@@ -62,16 +59,16 @@ layout: layouts/base.njk
     <section id="about">
         <div class="section-header">
             <h2>About the Conference</h2>
-            <p>The premier event for statisticians, data scientists, and imaging researchers</p>
+            <p>The annual meeting of the ASA Statistics in Imaging Section</p>
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p>The University of Maryland (UMD), College Park is proud to host the 2027 <a href="https://www.statsinimaging.org/">ASA-SII</a>
-                    <a href="https://www.statsinimaging.org/events_smi/">Statistical Methods in Imaging (SMI)</a> Conference. We are excited to bring together the statistical imaging community in the Washington, DC area.</p>
-                <p>UMD and the surrounding community are home to a large group of statisticians, biostatisticians, mathematicians, bioinformaticians, and computational scientists, creating a vibrant environment for research and collaboration in imaging research.</p>
+                <p>Statistical Methods in Imaging (SMI) is the annual meeting of the <a href="https://www.statsinimaging.org/">ASA Statistics in Imaging Section</a>. It brings together students and established researchers who develop statistical methods for imaging data and apply them in science and medicine.</p>
+                <p>Since 2015, <a href="https://www.statsinimaging.org/events_smi/">SMI has been hosted by universities across the United States</a>. In 2027, the meeting comes to the University of Maryland, College Park, just outside Washington, DC.</p>
+                <p>Recent meetings have included work on biomedical imaging, digital pathology, spatial transcriptomics, remote sensing, astronomy, and materials science. Their programs combined tutorials, keynote talks, invited sessions, a poster session, and a student paper competition.</p>
             </div>
             <div class="resources">
-                <h3>Conference Resources &amp; Facilities</h3>
+                <h3>Useful Links</h3>
                 <ul class="resource-list">
                     {% for resource in site.resources %}<li><i class="fas {{ resource.icon }}"></i> <a href="{{ resource.url }}">{{ resource.label }}</a></li>
                     {% endfor %}
@@ -84,7 +81,7 @@ layout: layouts/base.njk
     <section id="dates">
         <div class="section-header">
             <h2>Important Dates</h2>
-            <p>Mark your calendar for these key milestones</p>
+            <p>Deadlines and announcements for SMI 2027</p>
         </div>
         <table class="dates-table">
             <thead>
@@ -112,7 +109,7 @@ layout: layouts/base.njk
     <section id="schedule">
         <div class="section-header">
             <h2>Conference Schedule</h2>
-            <p>Three days of presentations, networking, and learning</p>
+            <p>The program for each day of SMI 2027</p>
             <br>
             <strong><a href="{{ site.venue.url }}">Venue: {{ site.venue.name }}</a></strong>
         </div>
@@ -218,7 +215,7 @@ layout: layouts/base.njk
 
         <div class="section-header">
             <h2>Organizing Committee</h2>
-            <p>Leading the organization of SMI 2027</p>
+            <p>The team planning SMI 2027</p>
         </div>
         {% if committee.organizing.length %}
         <div class="committee-grid">
@@ -242,7 +239,7 @@ layout: layouts/base.njk
     <section id="sponsors">
         <div class="section-header">
             <h2>Institutional Support</h2>
-            <p>We gratefully acknowledge our sponsors and supporters</p>
+            <p>Organizations supporting SMI 2027</p>
         </div>
         {% if sponsors.length %}
         <div class="sponsors-grid">
@@ -253,40 +250,22 @@ layout: layouts/base.njk
         {% else %}<p class="empty-note">Sponsors will be announced here.</p>{% endif %}
     </section>
 
-    <!-- Student Support Section -->
-    <section id="student-support">
-        <div class="section-header">
-            <h2>Student Support</h2>
-            <p>Opportunities for student participation and development</p>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>We are committed to supporting student participation in SMI 2027. Details on student travel awards, Best Paper Awards, and student networking and mentorship opportunities will be announced here.</p>
-                <p><em>Note: Student support is subject to funding availability</em></p>
-            </div>
-            <div class="resources">
-                <h3>Proceedings</h3>
-                <p>Details on SMI 2027 proceedings will be announced here.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Travel, Hotels, and Accommodation -->
     <section id="travel-hotels">
         <div class="section-header">
             <h2>Travel &amp; Accommodation</h2>
-            <p>Local transportation and hotels</p>
+            <p>Getting to College Park and where to stay</p>
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p><em>Local transportation</em></p>
+                <p><em>Getting here</em></p>
                 <ul class="resource-list">
                     {% for link in travel.transportation %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="about-text">
-                <p><em>Hotels &amp; Accommodation</em></p>
+                <p><em>Where to stay</em></p>
                 <ul class="resource-list">
                     {% for link in travel.hotels %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>
                     {% endfor %}
@@ -316,7 +295,7 @@ layout: layouts/base.njk
             </div>
             <div class="footer-section">
                 <h3>Venue Information</h3>
-                <p>The conference will be held at the <a href="{{ site.venue.url }}">{{ site.venue.name }},</a> University of Maryland, {{ site.venue.address }}.</p>
+                <p>SMI 2027 takes place at the <a href="{{ site.venue.url }}">{{ site.venue.name }},</a> University of Maryland, {{ site.venue.address }}.</p>
                 <a href="{{ site.venue.map_url }}">Campus Map</a>
                 <a href="#travel-hotels">Travel Information</a>
                 <a href="#travel-hotels">Accommodation</a>
@@ -324,8 +303,7 @@ layout: layouts/base.njk
         </div>
         <div class="footer-bottom">
             <p>{{ site.organizer_note }} <a href="https://www.statsinimaging.org/">ASA Statistics in Imaging Section</a>.</p>
-            <p>Images: {% for credit in site.credits %}<a href="{{ credit.url }}">{{ credit.text }}</a> {{ credit.note }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
-            <p>&copy; SMI 2027 Conference. All rights reserved.</p>
+            <p>&copy; SMI 2027 organizers</p>
         </div>
     </div>
 </footer>
