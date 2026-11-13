@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-12
+
+- 计划更新并实施：Keynote 加入 Paul Taylor（NIMH Scientific and Statistical Computing Core 主任，用户告知）。经用户确认后发布（2026-11-13）。
+
 ## 2026-11-06
 
 - 计划更新并实施：Keynote 和委员会名单的人名改为黑色，不用 UMD 红。经用户确认后发布。
