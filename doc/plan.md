@@ -37,6 +37,7 @@
   - 删除 Student Support 版块（其中的 Proceedings 一并删除）。
   - 页眉按钮删除倒数第 1、2、4 个：Travel Award Application、Travel Info、ASA/SDSI special issue。导航栏和 Travel & Accommodation 版块不变。
   - 人名（Keynote 和委员会名单）用黑色，不用 UMD 红（用户要求）。
+  - 图片加载慢（2026-11-16，用户要求压缩）：Keynote 照片不再外链，下载各自官方主页上的照片，缩到 240 px（头像显示 120 px 的 2 倍）后存入 `src/assets/img/keynotes/`；页眉两张背景图缩到 1600 px 宽并重新压缩。照片仍来自本人所在机构的官方主页，正式对外前请本人确认可用。
   - 页面文字不再沿用 2026 原文，参考历届 SMI（2018、2022、2024、2025 官网和 Section 页面）重写。只陈述历届已发生的事实；2027 未确认的规则（奖金、资格、投稿要求）写“随表单公布”。导航、版块顺序和样式不变。
 - CSS 和 JS 取自 2026 原文件（该仓库无 license，同属 ASA-SII 会议系列，建议向 Section 确认）。
 

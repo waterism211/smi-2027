@@ -3,14 +3,14 @@ keynotes:
   - name: Prof. Hongtu Zhu
     title: University of North Carolina at Chapel Hill
     url: https://sph.unc.edu/adv_profile/hongtu-zhu-phd/
-    photo: https://sph.unc.edu/wp-content/uploads/sites/112/2023/04/zhu-hongtu-2023.jpg
+    photo: /assets/img/keynotes/hongtu-zhu.jpg
   - name: Dr. Paul Taylor
     title: National Institute of Mental Health (NIMH)
     url: https://www.nimh.nih.gov/research/research-conducted-at-nimh/principal-investigators/paul-taylor-phd
-    photo: https://www.nimh.nih.gov/sites/default/files/images/irp/pis/pt_sscc_125x155.png
+    photo: /assets/img/keynotes/paul-taylor.jpg
   - name: Prof. Ying Guo
     title: Emory University
     url: https://sph.emory.edu/profile/faculty/ying-guo
-    photo: https://sph.emory.edu/sites/g/files/dezdun146/files/styles/profile_1x1/public/profile_images/Guo__Ying__formal.jpg.jpeg?itok=uMlgC1P7
+    photo: /assets/img/keynotes/ying-guo.jpg
 organizing: []
 advisory: []
