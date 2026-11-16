@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-16
+
+- 计划更新并实施：Keynote 加入 Ying Guo（Emory University，用户告知）。经用户确认后发布。
+
 ## 2026-11-12
 
 - 计划更新并实施：Keynote 加入 Paul Taylor（NIMH Scientific and Statistical Computing Core 主任，用户告知）。经用户确认后发布（2026-11-13）。

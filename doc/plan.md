@@ -27,7 +27,7 @@
 导航、版块顺序、日程 tab 和页面样式严格沿用 SMI 2026：单页长站，导航为 About、Important Dates、Schedule、Call for Papers、Committee、Sponsors、Contact；日程为 All Days、Day 1–3 共 4 个 tab。此决定取代第 3 节的多页结构和自定义视觉，Eleventy + YAML 不变。
 
 - 只替换配色为 UMD 红和金。Important Dates 单独成段（2026 本来如此）。
-- 会议：June 2-4, 2027；会场 Adele H. Stamp Student Union；酒店 The Hotel at the University of Maryland；Keynote：Hongtu Zhu（用户告知本人已确认，2026-11-06）；Paul Taylor（NIMH，用户告知，2026-11-12）。
+- 会议：June 2-4, 2027；会场 Adele H. Stamp Student Union；酒店 The Hotel at the University of Maryland；Keynote：Hongtu Zhu（用户告知本人已确认，2026-11-06）；Paul Taylor（NIMH，用户告知，2026-11-12）；Ying Guo（Emory，用户告知，2026-11-16）。
 - 页眉背景放 DC 风景图、Maryland 标志和大脑图片。Contact 放用户本人信息。
 - 日期规则（2026-11-06，用户确认）：Important Dates 取 2026 的日期加一年；会议日期不变；加一年后已过去的放当月（November 2026）。
 - 2026 中未确认的内容（表单、资助金额、特刊、赞助）不照抄，写待公布。
