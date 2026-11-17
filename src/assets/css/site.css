@@ -521,6 +521,15 @@ section {
     text-decoration: underline;
 }
 
+.member-role {
+    color: var(--dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
 .member-title {
     color: var(--gray);
     font-style: italic;

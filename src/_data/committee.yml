@@ -1,4 +1,5 @@
-# Each person needs: name, title. Optional: url, photo (https URL or /assets/img/ path).
+# Each person needs: name, title. Optional: role (shown above title, such as Co-Chair), url,
+# photo (https URL or /assets/img/ path).
 keynotes:
   - name: Prof. Hongtu Zhu
     title: University of North Carolina at Chapel Hill
@@ -12,5 +13,15 @@ keynotes:
     title: Emory University
     url: https://sph.emory.edu/profile/faculty/ying-guo
     photo: /assets/img/keynotes/ying-guo.jpg
-organizing: []
+organizing:
+  - name: Prof. Shuo Chen
+    role: Co-Chair
+    title: Epidemiology & Public Health, University of Maryland School of Medicine
+    url: https://www.medschool.umaryland.edu/profiles/Chen-Shuo/
+    photo: /assets/img/committee/shuo-chen.jpg
+  - name: Prof. Tianzhou Ma
+    role: Co-Chair
+    title: Epidemiology and Biostatistics, University of Maryland, College Park
+    url: https://sph.umd.edu/people/tianzhou-ma
+    photo: /assets/img/committee/tianzhou-ma.jpg
 advisory: []

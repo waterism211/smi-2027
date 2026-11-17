@@ -115,6 +115,7 @@ for (const group of ["keynotes", "organizing", "advisory"]) {
     const where = `committee.yml ${group}[${index}]`;
     requireText(where, person, ["name", "title"]);
     requireOptionalHttps(where, person, "url");
+    if (person.role != null && !isText(person.role)) fail(where, "\"role\" must be text");
     if (person.photo != null && !isHttpsUrl(person.photo) && !String(person.photo).startsWith("/assets/img/")) {
       fail(where, '"photo" must be an https:// link or a /assets/img/ path');
     }

@@ -27,12 +27,12 @@ When a form opens, add its link as `form_url` in `calls.yml` and replace the mat
 | File | Source | License |
 |---|---|---|
 | `dc-cherry-blossoms-jefferson.webp`, `dc-cherry-blossoms-monument.webp` | Provided by the organizers | Source and license to be confirmed |
-| `keynotes/*.jpg` | Each speaker's official profile page, resized to 240 px | Confirm with each speaker before the public launch |
+| `keynotes/*.jpg`, `committee/*.jpg` | Each person's official profile page, cropped to 240 px | Confirm with each person before the public launch |
 | `umd-wordmark.svg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:University_of_Maryland_wordmark.svg) | Listed as public domain; a University of Maryland trademark |
 
 Before the public launch, confirm the source and license of the header photos, and replace the wordmark with the official logo file from the [UMD brand team](https://brand.umd.edu/visual-identity/logos). The header shows the two photos in turn; `src/assets/css/site.css` sets this under `.header-bg`.
 
-To add a speaker photo, save a copy of about 240 px in `src/assets/img/keynotes/` and set `photo` in `committee.yml` to its `/assets/img/keynotes/` path. For example, on a Mac:
+To add a photo, save a copy of about 240 px in `src/assets/img/keynotes/` (speakers) or `src/assets/img/committee/` (committee members), and set `photo` in `committee.yml` to that path, starting with `/assets/img/`. For example, on a Mac:
 
 ```bash
 sips -s format jpeg -s formatOptions 80 -Z 240 photo.jpg --out src/assets/img/keynotes/name.jpg

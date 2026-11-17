@@ -7,6 +7,7 @@ layout: layouts/base.njk
         {% if member.photo %}<img src="{{ member.photo }}" alt="{{ member.name }}">{% else %}<i class="fas fa-user" aria-hidden="true"></i>{% endif %}
     </div>
     <div class="member-name">{% if member.url %}<a href="{{ member.url }}">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}</div>
+    {% if member.role %}<div class="member-role">{{ member.role }}</div>{% endif %}
     <div class="member-title">{{ member.title }}</div>
 </div>
 {% endmacro %}
