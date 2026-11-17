@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import { load as loadYaml } from "js-yaml";
 
@@ -44,7 +46,13 @@ export default function (eleventyConfig) {
     })),
   );
 
-  eleventyConfig.addFilter("milestoneDate", (milestones, id) => {
+  // Version tag for an asset link, from the file content. A changed file gets a new link,
+  // so browsers do not keep using a cached copy. A missing file stops the build.
+  eleventyConfig.addFilter("assetVersion", (path) =>
+    createHash("sha256").update(readFileSync(`src${path}`)).digest("hex").slice(0, 10),
+  );
+
+  eleventyConfig.addFilter("milestoneDate",(milestones, id) => {
     const match = milestones.find((milestone) => milestone.id === id);
     if (!match) throw new Error(`Unknown milestone id: ${id}`);
     return match.date;

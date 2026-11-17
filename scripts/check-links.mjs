@@ -53,7 +53,8 @@ for (const file of htmlFiles) {
       if (!url.startsWith("https://")) errors.push(`${where}: insecure link ${url}`);
       external.set(url, where);
     } else if (!url.startsWith("mailto:")) {
-      const [pathPart, anchor] = url.split("#");
+      const [withQuery, anchor] = url.split("#");
+      const pathPart = withQuery.split("?")[0];
       let target = currentUrl;
       if (pathPart.startsWith("/")) {
         if (!pathPart.startsWith(prefix)) {
