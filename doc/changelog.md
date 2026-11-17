@@ -1,7 +1,13 @@
 # Changelog
 
+## 2026-11-17
+
+- 计划更新并实施：联系人邮箱改为 shitao.fan@som.umaryland.edu，地点改为 MPRC（Maryland Psychiatric Research Center, University of Maryland School of Medicine, Catonsville, MD）（用户要求）。经用户确认后发布（2026-11-17）。
+- 计划更新并实施：Organizing Committee 加入 Co-Chairs Shuo Chen 和 Tianzhou Ma；人员卡片支持可选的 `role`。经用户确认后发布（2026-11-17）。
+
 ## 2026-11-16
 
+- 计划更新并实施：样式和脚本链接加上按文件内容生成的版本号，避免更新后浏览器继续用旧缓存。经用户确认后发布（2026-11-17）。
 - 计划更新并实施：压缩图片。Keynote 照片改为本地 240 px 文件，页眉背景图缩到 1600 px 宽并改为 WebP（图片总量约 1.48 MB 降到约 380 KB）。经用户确认后发布。
 - 计划更新并实施：Keynote 加入 Ying Guo（Emory University，用户告知）。经用户确认后发布。
 

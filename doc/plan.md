@@ -28,7 +28,7 @@
 
 - 只替换配色为 UMD 红和金。Important Dates 单独成段（2026 本来如此）。
 - 会议：June 2-4, 2027；会场 Adele H. Stamp Student Union；酒店 The Hotel at the University of Maryland；Keynote：Hongtu Zhu（用户告知本人已确认，2026-11-06）；Paul Taylor（NIMH，用户告知，2026-11-12）；Ying Guo（Emory，用户告知，2026-11-16）。
-- 页眉背景放 DC 风景图、Maryland 标志和大脑图片。Contact 放用户本人信息。
+- 页眉背景放 DC 风景图、Maryland 标志和大脑图片。Contact 放用户本人信息，邮箱 shitao.fan@som.umaryland.edu，地点 Maryland Psychiatric Research Center (MPRC), University of Maryland School of Medicine, Catonsville, MD（2026-11-17 用户更新）。
 - 日期规则（2026-11-06，用户确认）：Important Dates 取 2026 的日期加一年；会议日期不变；加一年后已过去的放当月（November 2026）。
 - 2026 中未确认的内容（表单、资助金额、特刊、赞助）不照抄，写待公布。
 - 与 2026 的差异：页眉加 DC 背景和 Maryland 标志；顶部保留草稿提示；没有内容的部分（获奖名单、合影、PDF、社交图标、电话）暂不显示；修复 2026 的错别字和页脚链接不可见问题。
@@ -38,6 +38,8 @@
   - 页眉按钮删除倒数第 1、2、4 个：Travel Award Application、Travel Info、ASA/SDSI special issue。导航栏和 Travel & Accommodation 版块不变。
   - 人名（Keynote 和委员会名单）用黑色，不用 UMD 红（用户要求）。
   - 图片加载慢（2026-11-16，用户要求压缩）：Keynote 照片不再外链，下载各自官方主页上的照片，缩到 240 px（头像显示 120 px 的 2 倍）后存入 `src/assets/img/keynotes/`；页眉两张背景图缩到 1600 px 宽并重新压缩。照片仍来自本人所在机构的官方主页，正式对外前请本人确认可用。
+  - Organizing Committee（2026-11-17，用户告知）：Shuo Chen（University of Maryland School of Medicine）和 Tianzhou Ma（University of Maryland, College Park）任 Co-Chairs。人员卡片加一个可选的 `role` 字段，显示在单位上方。照片取自两人官方主页，裁成 240 px 方形存入 `src/assets/img/committee/`。
+  - 样式和脚本链接加版本号（2026-11-16，用户同意）：GitHub Pages 允许浏览器缓存 10 分钟，更新后旧样式可能指向已删除的图片。版本号取 `site.css`、`site.js` 内容的哈希，内容变了链接就变。
   - 页面文字不再沿用 2026 原文，参考历届 SMI（2018、2022、2024、2025 官网和 Section 页面）重写。只陈述历届已发生的事实；2027 未确认的规则（奖金、资格、投稿要求）写“随表单公布”。导航、版块顺序和样式不变。
 - CSS 和 JS 取自 2026 原文件（该仓库无 license，同属 ASA-SII 会议系列，建议向 Section 确认）。
 
