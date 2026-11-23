@@ -20,7 +20,7 @@ Write dates in `dates.yml` as display text, such as `TBA` or `March 15, 2027`. W
 
 When a form opens, add its link as `form_url` in `calls.yml` and replace the matching button `url` in `site.yml`.
 
-**Before the public launch:** set `draft: false` in `site.yml`. This removes the draft notice and lets search engines index the site. Do this only after the ASA Statistics in Imaging Section has confirmed the host.
+**Draft mode:** `draft: true` in `site.yml` shows a draft notice and asks search engines not to index the site. The site is currently public (`draft: false`).
 
 ## Images
 

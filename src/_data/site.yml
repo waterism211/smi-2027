@@ -1,6 +1,5 @@
-# Keep draft: true until the ASA Statistics in Imaging Section confirms the host.
-# Draft mode shows a notice at the top of the page and asks search engines not to index.
-draft: true
+# draft: true shows a notice at the top of the page and asks search engines not to index.
+draft: false
 
 title: Statistical Methods in Imaging (SMI) 2027
 short_name: SMI 2027
