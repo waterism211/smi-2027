@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-23
+
+- 计划更新并实施：页眉的 UMD 文字标换成 SPH Communications 提供的 SPH 彩色 logo。经用户确认后发布。
+
 ## 2026-11-17
 
 - 计划更新并实施：联系人邮箱改为 shitao.fan@som.umaryland.edu，地点改为 MPRC（Maryland Psychiatric Research Center, University of Maryland School of Medicine, Catonsville, MD）（用户要求）。经用户确认后发布（2026-11-17）。

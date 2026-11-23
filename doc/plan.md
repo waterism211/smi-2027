@@ -39,6 +39,7 @@
   - 人名（Keynote 和委员会名单）用黑色，不用 UMD 红（用户要求）。
   - 图片加载慢（2026-11-16，用户要求压缩）：Keynote 照片不再外链，下载各自官方主页上的照片，缩到 240 px（头像显示 120 px 的 2 倍）后存入 `src/assets/img/keynotes/`；页眉两张背景图缩到 1600 px 宽并重新压缩。照片仍来自本人所在机构的官方主页，正式对外前请本人确认可用。
   - Organizing Committee（2026-11-17，用户告知）：Shuo Chen（University of Maryland School of Medicine）和 Tianzhou Ma（University of Maryland, College Park）任 Co-Chairs。人员卡片加一个可选的 `role` 字段，显示在单位上方。照片取自两人官方主页，裁成 240 px 方形存入 `src/assets/img/committee/`。
+  - 页眉 logo（2026-11-23）：SPH Communications（Amy）建议用 SPH logo，并提供了文件（彩色、反白 PNG 和 SVG）。页眉的 Wikimedia UMD 文字标换成 SPH 彩色 logo，仍放在白色底板上（UMD 规定不放在杂乱的照片背景上）。只裁掉文件四周的透明空白并缩小到网页尺寸，logo 本身不改。SVG 里嵌的是位图，不比 PNG 清晰，不使用。
   - 样式和脚本链接加版本号（2026-11-16，用户同意）：GitHub Pages 允许浏览器缓存 10 分钟，更新后旧样式可能指向已删除的图片。版本号取 `site.css`、`site.js` 内容的哈希，内容变了链接就变。
   - 页面文字不再沿用 2026 原文，参考历届 SMI（2018、2022、2024、2025 官网和 Section 页面）重写。只陈述历届已发生的事实；2027 未确认的规则（奖金、资格、投稿要求）写“随表单公布”。导航、版块顺序和样式不变。
 - CSS 和 JS 取自 2026 原文件（该仓库无 license，同属 ASA-SII 会议系列，建议向 Section 确认）。

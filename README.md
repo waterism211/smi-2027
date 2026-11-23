@@ -28,9 +28,9 @@ When a form opens, add its link as `form_url` in `calls.yml` and replace the mat
 |---|---|---|
 | `dc-cherry-blossoms-jefferson.webp`, `dc-cherry-blossoms-monument.webp` | Provided by the organizers | Source and license to be confirmed |
 | `keynotes/*.jpg`, `committee/*.jpg` | Each person's official profile page, cropped to 240 px | Confirm with each person before the public launch |
-| `umd-wordmark.svg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:University_of_Maryland_wordmark.svg) | Listed as public domain; a University of Maryland trademark |
+| `umd-sph-logo.png` | UMD School of Public Health Communications (sph-comm@umd.edu), November 2026 | Official SPH logo; follow the [UMD logo usage rules](https://brand.umd.edu/visual-identity/logos/usage). Only the transparent margin was trimmed and the file resized. |
 
-Before the public launch, confirm the source and license of the header photos, and replace the wordmark with the official logo file from the [UMD brand team](https://brand.umd.edu/visual-identity/logos). The header shows the two photos in turn; `src/assets/css/site.css` sets this under `.header-bg`.
+Before the public launch, confirm the source and license of the header photos. Do not recolor, stretch or add effects to the logo, and keep it on its white panel rather than directly on the photo. The header shows the two photos in turn; `src/assets/css/site.css` sets this under `.header-bg`.
 
 To add a photo, save a copy of about 240 px in `src/assets/img/keynotes/` (speakers) or `src/assets/img/committee/` (committee members), and set `photo` in `committee.yml` to that path, starting with `/assets/img/`. For example, on a Mac:
 
